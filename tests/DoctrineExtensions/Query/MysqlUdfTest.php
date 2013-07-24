@@ -44,7 +44,7 @@ class MysqlUdfTest extends \PHPUnit_Framework_TestCase
 
     public function testDateAdd()
     {
-        $dql = "SELECT p FROM Entities\BlogPost p WHERE DATE_ADD(CURRENT_TIME(), INTERVAL 4 MONTH) < 7";
+        $dql = "SELECT p FROM Entities\BlogPost p WHERE DATE_ADD(CURRENT_TIME(), 4, 'MONTH') < 7";
         $q = $this->entityManager->createQuery($dql);
 
         $sql = "SELECT b0_.id AS id0, b0_.created AS created1, b0_.longitude AS longitude2, b0_.latitude AS latitude3 FROM BlogPost b0_ WHERE DATE_ADD(CURRENT_TIME, INTERVAL 4 MONTH) < 7";
